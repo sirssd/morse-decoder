@@ -43,8 +43,8 @@ function decode(expr) {
     const dot = 10;
     const dash = 11;
     let splitedStr = splitterStr(expr);
-    let chars = numbersDecoder(splitedStr);
-    let DecoderMorseSrting = MorseDecoder(chars);
+    let chars = charsDecoder(splitedStr);
+    let DecodedMorseSrting = MorseCharsDecoder(chars);
 
     function splitterStr(str) {
         let arrFromStr = [];
@@ -56,7 +56,7 @@ function decode(expr) {
         return arrFromStr;
     }
 
-    function numbersDecoder(arr) {
+    function charsDecoder(arr) {
         let sym = [];
 
         arr.forEach(item => {
@@ -70,15 +70,15 @@ function decode(expr) {
             }
 
             arrP.forEach(elem => {
-                if (elem == '10') arrElem.push('.');
-                if (elem == '11') arrElem.push('-');
+                if (elem == dot) arrElem.push('.');
+                if (elem == dash) arrElem.push('-');
             })
             sym.push(arrElem.join(''))
         });
         return sym;
     }
 
-    function MorseDecoder(arr) {
+    function MorseCharsDecoder(arr) {
         let decArr = [];
 
         arr.forEach(item => {
@@ -90,10 +90,10 @@ function decode(expr) {
         return decArr.join('')
     }
 
-    return DecoderMorseSrting;
+    return DecodedMorseSrting;
 
-    /* Number Coder:
-    
+    /* Chars Coder:
+
     arrFromStr.forEach(i => {
             coderArr = coderArr.concat(coding(i));
         });
